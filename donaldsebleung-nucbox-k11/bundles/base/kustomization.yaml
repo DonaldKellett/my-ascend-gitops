@@ -1,2 +1,3 @@
 resources:
   - bundle-cluster-argocd.yaml
+  - bundle-system-upgrade.yaml

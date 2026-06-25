@@ -1,0 +1,3 @@
+resources:
+  - component-system-upgrade-controller.yaml
+  - k3s-server.yaml

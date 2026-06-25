@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bundle-system-upgrade
+spec:
+  project: default
+  source:
+    repoURL: https://gitcode.com/donaldsebleung/my-ascend-gitops.git
+    path: donaldsebleung-nucbox-k11/components/system-upgrade/overlays/prod/
+    targetRevision: HEAD
+    kustomize: {}
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true
