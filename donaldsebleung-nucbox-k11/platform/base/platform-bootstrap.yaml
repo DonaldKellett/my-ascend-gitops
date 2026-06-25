@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://gitcode.com/donaldsebleung/my-ascend-gitops.git
-    path: bundles/overlays/prod/
+    path: donaldsebleung-nucbox-k11/bundles/overlays/prod/
     targetRevision: HEAD
     kustomize: {}
   destination:
