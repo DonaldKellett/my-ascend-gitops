@@ -13,3 +13,10 @@ Argo CD GitOps manifests for my single-node K3s cluster with the following hardw
 | NPU | Ascend 310P1 x2 |
 | AI computing capability | 352 TOPS / 176 TFLOPS |
 | Total device memory | 192G |
+
+## Quickstart
+
+```bash
+kubectl kustomize platform/overlays/prod/ | \
+    kubectl -n argocd apply -f -
+```

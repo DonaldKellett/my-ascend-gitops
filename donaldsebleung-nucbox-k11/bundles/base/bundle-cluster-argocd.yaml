@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bundle-cluster-argocd
+spec:
+  project: default
+  source:
+    repoURL: https://gitcode.com/donaldsebleung/my-ascend-gitops.git
+    path: donaldsebleung-nucbox-k11/components/cluster-argocd/overlays/prod/
+    targetRevision: HEAD
+    kustomize: {}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - ServerSideApply=true

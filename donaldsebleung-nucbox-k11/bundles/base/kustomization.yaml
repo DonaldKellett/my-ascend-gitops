@@ -1,0 +1,2 @@
+resources:
+  - bundle-cluster-argocd.yaml
