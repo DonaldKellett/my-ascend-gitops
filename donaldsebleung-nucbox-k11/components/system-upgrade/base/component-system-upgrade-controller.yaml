@@ -4,6 +4,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '-1'
+    argocd.argoproj.io/sync-options: 'Wait=true'
   name: component-system-upgrade-controller
   namespace: argocd
 spec:
