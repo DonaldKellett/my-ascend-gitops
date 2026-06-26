@@ -1,0 +1,5 @@
+resources:
+  - cert-manager-ns.yaml
+  - component-cert-manager.yaml
+  - root-ca-secret.yaml
+  - root-ca-clusterissuer.yaml

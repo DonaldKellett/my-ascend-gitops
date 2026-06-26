@@ -2,3 +2,4 @@ resources:
   - bundle-cluster-argocd.yaml
   - bundle-system-upgrade.yaml
   - bundle-sealed-secrets.yaml
+  - bundle-cert-manager.yaml
