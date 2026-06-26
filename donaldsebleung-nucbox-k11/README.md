@@ -14,9 +14,20 @@ Argo CD GitOps manifests for my single-node K3s cluster with the following hardw
 | AI computing capability | 352 TOPS / 176 TFLOPS |
 | Total device memory | 192G |
 
-## Quickstart
+### Quickstart
 
 ```bash
 kubectl kustomize platform/overlays/prod/ | \
     kubectl -n argocd apply -f -
 ```
+
+### Components
+
+The platform components installed are listed in the table below.
+
+| Component | Function |
+| --- | --- |
+| [Argo CD](https://argo-cd.readthedocs.io/en/stable/) | GitOps reconciliation |
+| [system-upgrade-controller](https://github.com/rancher/system-upgrade-controller) | K3s upgrade |
+| [Sealed Secrets](https://github.com/bitnami/sealed-secrets) | Secrets management |
+| [cert-manager](https://cert-manager.io/) | TLS certificates |
