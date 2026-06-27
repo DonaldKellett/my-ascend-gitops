@@ -8,6 +8,7 @@ metadata:
 spec:
   server:
     host: argocd.internal.donaldsebleung.com
+    insecure: true
     ingress:
       annotations:
         cluster-name: donaldsebleung-nucbox-k11
