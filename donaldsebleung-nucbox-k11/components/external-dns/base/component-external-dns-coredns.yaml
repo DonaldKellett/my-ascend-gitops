@@ -1,0 +1,75 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+    argocd.argoproj.io/sync-options: 'Wait=true'
+  name: component-external-dns-coredns
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://coredns.github.io/helm
+    chart: coredns
+    targetRevision: 1.46.0
+    helm:
+      valuesObject:
+        isClusterService: false
+        service:
+          name: coredns
+          port: 53
+          annotations: {}
+          clusterIP: ""
+        servers:
+          - zones:
+              - zone: .
+            port: 53
+            plugins:
+              - name: errors
+              - name: debug
+              - name: health
+                configBlock: |-
+                  lameduck 5s
+              - name: ready
+              - name: kubernetes
+                parameters: cluster.local 10.0.0.0/24
+                configBlock: |-
+                  pods insecure
+                  fallthrough in-addr.arpa ip6.arpa
+                  ttl 30
+              - name: etcd
+                parameters: 'internal.donaldsebleung.com'
+                configBlock: |
+                  stubzones
+                  path /skydns
+                  endpoint http://etcd.external-dns.svc.cluster.local:2379
+                  fallthrough
+              - name: log
+              - name: forward
+                parameters: ". /etc/resolv.conf"
+              - name: cache
+                parameters: 30
+              - name: reload
+              - name: loop
+              - name: loadbalance
+        replicaCount: 1
+        initContainers:
+          - name: resolv-check
+            image: busybox:1.37
+            command:
+              - sh
+              - -c
+              - |
+                echo '--- /etc/resolv.conf ---';
+                cat /etc/resolv.conf;
+                echo '---------------------------';
+                nslookup kubernetes.default.svc.cluster.local || true;
+                sleep 5
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: external-dns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

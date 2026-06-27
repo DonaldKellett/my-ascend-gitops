@@ -1,0 +1,5 @@
+resources:
+  - external-dns-ns.yaml
+  - external-dns-etcd.yaml
+  - component-external-dns-coredns.yaml
+  - component-external-dns.yaml

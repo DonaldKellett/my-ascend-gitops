@@ -3,3 +3,4 @@ resources:
   - bundle-system-upgrade.yaml
   - bundle-sealed-secrets.yaml
   - bundle-cert-manager.yaml
+  - bundle-external-dns.yaml

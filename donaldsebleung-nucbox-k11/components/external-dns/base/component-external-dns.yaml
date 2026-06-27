@@ -1,0 +1,45 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: component-external-dns
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://kubernetes-sigs.github.io/external-dns/
+    chart: external-dns
+    targetRevision: 1.21.0
+    helm:
+      valuesObject:
+        provider:
+          name: coredns
+        env:
+          - name: ETCD_URLS
+            value: "http://etcd.external-dns.svc.cluster.local:2379"
+        txtOwnerId: donaldsebleung-nucbox-k11
+        annotationFilter: cluster-name=donaldsebleung-nucbox-k11
+        domainFilters:
+          - internal.donaldsebleung.com
+        sources:
+          - service
+          - ingress
+        policy: sync
+        logLevel: debug
+        interval: 1m
+        rbac:
+          create: true
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 200m
+            memory: 128Mi
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: external-dns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
