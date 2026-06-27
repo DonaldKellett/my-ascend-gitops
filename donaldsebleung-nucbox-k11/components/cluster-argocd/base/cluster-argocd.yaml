@@ -5,4 +5,13 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: 'ServerSideApply=true,Validate=false'
   name: argocd
-spec: {}
+spec:
+  server:
+    ingress:
+      annotations:
+        cluster-name: donaldsebleung-nucbox-k11
+      enabled: true
+      tls:
+        - hosts:
+            - argocd.internal.donaldsebleung.com
+          secretName: argocd-tls
