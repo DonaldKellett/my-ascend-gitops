@@ -22,6 +22,9 @@ spec:
             - hosts:
                 - jupyterhub.internal.donaldsebleung.com
               secretName: jupyterhub-tls
+        proxy:
+          service:
+            type: ClusterIP
   destination:
     server: https://kubernetes.default.svc
     namespace: jupyterhub
