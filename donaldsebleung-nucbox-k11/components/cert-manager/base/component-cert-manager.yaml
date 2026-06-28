@@ -13,7 +13,6 @@ spec:
     repoURL: quay.io/jetstack/charts
     chart: cert-manager
     targetRevision: v1.20.3
-    helm: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager

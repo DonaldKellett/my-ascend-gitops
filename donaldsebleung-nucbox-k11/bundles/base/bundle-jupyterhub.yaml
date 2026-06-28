@@ -2,12 +2,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: bundle-external-dns
+  annotations:
+    argocd.argoproj.io/sync-wave: '2'
+    argocd.argoproj.io/sync-options: 'Wait=true'
+  name: bundle-jupyterhub
 spec:
   project: default
   source:
     repoURL: https://gitcode.com/donaldsebleung/my-ascend-gitops.git
-    path: donaldsebleung-nucbox-k11/components/external-dns/overlays/prod/
+    path: donaldsebleung-nucbox-k11/components/jupyterhub/overlays/prod/
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc

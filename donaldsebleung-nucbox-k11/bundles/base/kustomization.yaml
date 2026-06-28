@@ -4,3 +4,4 @@ resources:
   - bundle-sealed-secrets.yaml
   - bundle-cert-manager.yaml
   - bundle-external-dns.yaml
+  - bundle-jupyterhub.yaml

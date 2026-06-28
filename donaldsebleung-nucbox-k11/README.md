@@ -32,3 +32,4 @@ The platform components installed are listed in the table below.
 | [Sealed Secrets](https://github.com/bitnami/sealed-secrets) | Secrets management |
 | [cert-manager](https://cert-manager.io/) | TLS certificates |
 | [ExternalDNS](https://kubernetes-sigs.github.io/external-dns/v0.21.0/) | DNS management |
+| [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/) | Notebook self-service |

@@ -1,0 +1,4 @@
+resources:
+  - jupyterhub-ns.yaml
+  - jupyterhub-tls.yaml
+  - component-jupyterhub.yaml

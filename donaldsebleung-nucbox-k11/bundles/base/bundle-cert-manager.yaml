@@ -12,7 +12,6 @@ spec:
     repoURL: https://gitcode.com/donaldsebleung/my-ascend-gitops.git
     path: donaldsebleung-nucbox-k11/components/cert-manager/overlays/prod/
     targetRevision: HEAD
-    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
