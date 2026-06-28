@@ -33,3 +33,13 @@ The platform components installed are listed in the table below.
 | [cert-manager](https://cert-manager.io/) | TLS certificates |
 | [ExternalDNS](https://kubernetes-sigs.github.io/external-dns/v0.21.0/) | DNS management |
 | [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/) | Notebook self-service |
+
+### Screenshots
+
+![Argo CD login page](./assets/images/00-ai-homelab-pt1-argocd-login-page.png)
+
+![Argo CD dashboard](./assets/images/01-ai-homelab-pt1-argocd-dashboard.png)
+
+![JupyterHub login page](./assets/images/02-ai-homelab-pt1-jupyterhub-login-page.png)
+
+![JupyterHub PyTorch CPU-only notebook](./assets/images/03-ai-homelab-pt1-jupyterhub-notebook-torch-cpu.png)
