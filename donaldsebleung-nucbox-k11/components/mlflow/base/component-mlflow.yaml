@@ -24,7 +24,7 @@ spec:
             - mlflow.internal.donaldsebleung.com
           tls:
             - hosts:
-                - mlflow.internal.donaldsebleung.com
+                - host: mlflow.internal.donaldsebleung.com
               secretName: mlflow-tls
         mlflow:
           backendStoreUri: "sqlite:////mlflow/mlflow.db"
