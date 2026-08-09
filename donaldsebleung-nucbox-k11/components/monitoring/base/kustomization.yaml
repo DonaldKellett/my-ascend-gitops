@@ -1,4 +1,5 @@
 resources:
   - monitoring-ns.yaml
+  - monitoring-prometheus-tls.yaml
   - monitoring-grafana-tls.yaml
   - component-monitoring.yaml

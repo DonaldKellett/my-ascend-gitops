@@ -1,0 +1,19 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+    argocd.argoproj.io/sync-options: 'Wait=true'
+  name: monitoring-prometheus-tls
+  namespace: monitoring
+spec:
+  secretName: monitoring-prometheus-tls
+  duration: 8760h
+  renewBefore: 720h
+  issuerRef:
+    name: root-ca-clusterissuer
+    kind: ClusterIssuer
+  commonName: prometheus.internal.donaldsebleung.com
+  dnsNames:
+    - prometheus.internal.donaldsebleung.com

@@ -53,6 +53,16 @@ spec:
                 ports:
                   - port: 9090
                     protocol: TCP
+          ingress:
+            enabled: true
+            annotations:
+              cluster-name: donaldsebleung-nucbox-k11
+            hosts:
+              - prometheus.internal.donaldsebleung.com
+            tls:
+              - secretName: monitoring-prometheus-tls
+                hosts:
+                  - prometheus.internal.donaldsebleung.com
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
