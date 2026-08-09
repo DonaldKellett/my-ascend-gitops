@@ -41,4 +41,3 @@ spec:
       selfHeal: true
     syncOptions:
       - ServerSideApply=true
-      - ClientSideApplyMigration=false
