@@ -13,6 +13,7 @@ spec:
     helm:
       valuesObject:
         image:
+          repository: quay.io/donaldsebleung/mlflow
           tag: v3.15.1
         server:
           value_options:
@@ -39,9 +40,9 @@ spec:
         networkPolicy:
           enabled: true
         metrics:
-          enabled: false
+          enabled: true
         serviceMonitor:
-          enabled: false
+          enabled: true
         storage:
           enabled: true
   destination:
