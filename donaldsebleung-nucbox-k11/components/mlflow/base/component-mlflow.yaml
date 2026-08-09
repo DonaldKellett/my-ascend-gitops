@@ -38,7 +38,9 @@ spec:
         networkPolicy:
           enabled: true
         metrics:
-          enabled: true
+          enabled: false
+        serviceMonitor:
+          enabled: false
         storage:
           enabled: true
   destination:
