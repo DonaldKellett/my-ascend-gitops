@@ -1,0 +1,19 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '-1'
+    argocd.argoproj.io/sync-options: 'Wait=true'
+  name: monitoring-grafana-tls
+  namespace: monitoring
+spec:
+  secretName: monitoring-grafana-tls
+  duration: 8760h
+  renewBefore: 720h
+  issuerRef:
+    name: root-ca-clusterissuer
+    kind: ClusterIssuer
+  commonName: grafana.internal.donaldsebleung.com
+  dnsNames:
+    - grafana.internal.donaldsebleung.com

@@ -6,3 +6,4 @@ resources:
   - bundle-external-dns.yaml
   - bundle-jupyterhub.yaml
   - bundle-mlflow.yaml
+  - bundle-monitoring.yaml

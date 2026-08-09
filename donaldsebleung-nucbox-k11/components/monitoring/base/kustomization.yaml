@@ -1,0 +1,4 @@
+resources:
+  - monitoring-ns.yaml
+  - monitoring-grafana-tls.yaml
+  - component-monitoring.yaml
