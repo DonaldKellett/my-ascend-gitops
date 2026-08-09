@@ -17,6 +17,7 @@ spec:
         server:
           value_options:
             allowed_hosts: mlflow.internal.donaldsebleung.com
+            cors_allowed_origins: https://mlflow.internal.donaldsebleung.com
         garbageCollection:
           enabled: true
         ingress:
