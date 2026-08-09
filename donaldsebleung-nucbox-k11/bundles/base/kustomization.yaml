@@ -5,3 +5,4 @@ resources:
   - bundle-cert-manager.yaml
   - bundle-external-dns.yaml
   - bundle-jupyterhub.yaml
+  - bundle-mlflow.yaml

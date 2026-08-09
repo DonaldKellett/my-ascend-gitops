@@ -1,0 +1,4 @@
+resources:
+  - mlflow-ns.yaml
+  - mlflow-tls.yaml
+  - component-mlflow.yaml
