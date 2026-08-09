@@ -34,6 +34,8 @@ spec:
           artifactsDestination: "/mlflow/artifacts"
         networkPolicy:
           enabled: true
+        metrics:
+          enabled: true
         storage:
           enabled: true
   destination:
