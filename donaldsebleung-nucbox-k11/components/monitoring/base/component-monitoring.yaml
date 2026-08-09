@@ -47,6 +47,12 @@ spec:
               - {}
             ingress:
               - from:
+                  - namespaceSelector:
+                      matchLabels:
+                        kubernetes.io/metadata.name: kube-system
+                    podSelector:
+                      matchLabels:
+                        app.kubernetes.io/name: traefik
                   - podSelector:
                       matchLabels:
                         app.kubernetes.io/name: grafana
