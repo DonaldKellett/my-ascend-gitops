@@ -21,10 +21,13 @@ spec:
           annotations:
             cluster-name: donaldsebleung-nucbox-k11
           hosts:
-            - mlflow.internal.donaldsebleung.com
+            - host: mlflow.internal.donaldsebleung.com
+              paths:
+                - path: /
+                  pathType: Prefix
           tls:
             - hosts:
-                - host: mlflow.internal.donaldsebleung.com
+                - mlflow.internal.donaldsebleung.com
               secretName: mlflow-tls
         mlflow:
           backendStoreUri: "sqlite:////mlflow/mlflow.db"
