@@ -72,24 +72,29 @@ spec:
           prometheusSpec:
             ruleNamespaceSelector:
               matchExpressions:
-                - operator: Exists
+                - key: kubernetes.io/metadata.name
+                  operator: Exists
             ruleSelectorNilUsesHelmValues: false
             serviceMonitorSelectorNilUsesHelmValues: false
             serviceMonitorNamespaceSelector:
               matchExpressions:
-                - operator: Exists
+                - key: kubernetes.io/metadata.name
+                  operator: Exists
             podMonitorSelectorNilUsesHelmValues: false
             podMonitorNamespaceSelector:
               matchExpressions:
-                - operator: Exists
+                - key: kubernetes.io/metadata.name
+                  operator: Exists
             probeSelectorNilUsesHelmValues: false
             probeNamespaceSelector:
               matchExpressions:
-                - operator: Exists
+                - key: kubernetes.io/metadata.name
+                  operator: Exists
             scrapeConfigSelectorNilUsesHelmValues: false
             scrapeConfigNamespaceSelector:
               matchExpressions:
-                - operator: Exists
+                - key: kubernetes.io/metadata.name
+                  operator: Exists
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
