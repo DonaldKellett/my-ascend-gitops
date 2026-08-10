@@ -17,7 +17,7 @@ spec:
           tag: v3.15.1
         server:
           value_options:
-            allowed_hosts: mlflow.internal.donaldsebleung.com
+            allowed_hosts: '*'
             cors_allowed_origins: https://mlflow.internal.donaldsebleung.com
         garbageCollection:
           enabled: true
