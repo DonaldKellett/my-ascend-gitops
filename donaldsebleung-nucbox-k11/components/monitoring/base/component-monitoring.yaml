@@ -69,6 +69,27 @@ spec:
               - secretName: monitoring-prometheus-tls
                 hosts:
                   - prometheus.internal.donaldsebleung.com
+          prometheusSpec:
+            ruleNamespaceSelector:
+              matchExpressions:
+                - operator: Exists
+            ruleSelectorNilUsesHelmValues: false
+            serviceMonitorSelectorNilUsesHelmValues: false
+            serviceMonitorNamespaceSelector:
+              matchExpressions:
+                - operator: Exists
+            podMonitorSelectorNilUsesHelmValues: false
+            podMonitorNamespaceSelector:
+              matchExpressions:
+                - operator: Exists
+            probeSelectorNilUsesHelmValues: false
+            probeNamespaceSelector:
+              matchExpressions:
+                - operator: Exists
+            scrapeConfigSelectorNilUsesHelmValues: false
+            scrapeConfigNamespaceSelector:
+              matchExpressions:
+                - operator: Exists
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
