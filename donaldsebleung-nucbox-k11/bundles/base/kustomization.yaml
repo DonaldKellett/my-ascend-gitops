@@ -7,3 +7,4 @@ resources:
   - bundle-jupyterhub.yaml
   - bundle-mlflow.yaml
   - bundle-monitoring.yaml
+  - bundle-mindcluster.yaml
