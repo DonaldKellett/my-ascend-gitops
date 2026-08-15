@@ -115,7 +115,7 @@ spec:
               memory: 500Mi
               cpu: 500m
           command: ["/bin/bash", "-c", "--"]
-          args: ["device-plugin -useAscendDocker=false -logFile=/var/log/mindx-dl/devicePlugin/devicePlugin.log -logLevel=0"]
+          args: ["device-plugin -useAscendDocker=false -logFile=/var/log/mindx-dl/devicePlugin/devicePlugin.log -logLevel=-1"]
           securityContext:
             privileged: true
             readOnlyRootFilesystem: true
