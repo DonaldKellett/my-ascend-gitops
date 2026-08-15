@@ -1,2 +1,3 @@
 resources:
   - mindcluster-ascend-runtimeclass.yaml
+  - mindcluster-ascend-device-plugin.yaml
