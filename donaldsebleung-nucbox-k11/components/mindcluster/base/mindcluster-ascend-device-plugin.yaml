@@ -140,6 +140,9 @@ spec:
               readOnly: true
             - name: data-trace-file-dir
               mountPath: /user/cluster-info/datatrace-config
+            - name: containerd
+              mountPath: /run/k3s/containerd
+              readOnly: true
           env:
             - name: MOUNT_BY_RUNTIME_FOR_DP
               value: "true"
@@ -179,3 +182,7 @@ spec:
         - name: localtime
           hostPath:
             path: /etc/localtime
+        - name: containerd
+          hostPath:
+            path: /run/k3s/containerd
+            type: Directory
