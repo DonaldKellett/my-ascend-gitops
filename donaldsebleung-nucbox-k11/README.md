@@ -25,16 +25,16 @@ kubectl kustomize platform/overlays/prod/ | \
 
 The platform components installed are listed in the table below.
 
-| Component | Function |
-| --- | --- |
-| [Argo CD](https://argo-cd.readthedocs.io/en/stable/) | GitOps reconciliation |
-| [system-upgrade-controller](https://github.com/rancher/system-upgrade-controller) | K3s upgrade |
-| [Sealed Secrets](https://github.com/bitnami/sealed-secrets) | Secrets management |
-| [cert-manager](https://cert-manager.io/) | TLS certificates |
-| [ExternalDNS](https://kubernetes-sigs.github.io/external-dns/v0.21.0/) | DNS management |
-| [kube-prometheus-stack](https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack) | Infrastructure and workload monitoring |
-| [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/) | Notebook self-service |
-| [MLflow](https://mlflow.org/) | Experiment tracking and model management |
+| Component | Function | Dependencies |
+| --- | --- | --- |
+| [Argo CD](https://argo-cd.readthedocs.io/en/stable/) | GitOps reconciliation | - |
+| [system-upgrade-controller](https://github.com/rancher/system-upgrade-controller) | K3s upgrade | - |
+| [ExternalDNS](https://kubernetes-sigs.github.io/external-dns/v0.21.0/) | DNS management | - |
+| [Sealed Secrets](https://github.com/bitnami/sealed-secrets) | Secrets management | - |
+| [cert-manager](https://cert-manager.io/) | TLS certificates | Sealed Secrets |
+| [kube-prometheus-stack](https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack) | Infrastructure and workload monitoring | cert-manager |
+| [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/) | Notebook self-service | cert-manager |
+| [MLflow](https://mlflow.org/) | Experiment tracking and model management | cert-manager, kube-prometheus-stack |
 
 ### Screenshots
 
