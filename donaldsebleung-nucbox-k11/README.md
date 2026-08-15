@@ -30,6 +30,7 @@ The platform components installed are listed in the table below.
 | [Argo CD](https://argo-cd.readthedocs.io/en/stable/) | GitOps reconciliation | - |
 | [system-upgrade-controller](https://github.com/rancher/system-upgrade-controller) | K3s upgrade | - |
 | [ExternalDNS](https://kubernetes-sigs.github.io/external-dns/v0.21.0/) | DNS management | - |
+| [Ascend Docker Runtime](https://www.hiascend.com/document/detail/en/mindx-dl/latest/dluserguide/clusterscheduling/dlug_installation_02_000025.html) | Run NPU workloads on Kubernetes | - |
 | [Sealed Secrets](https://github.com/bitnami/sealed-secrets) | Secrets management | - |
 | [cert-manager](https://cert-manager.io/) | TLS certificates | Sealed Secrets |
 | [kube-prometheus-stack](https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack) | Infrastructure and workload monitoring | cert-manager |
