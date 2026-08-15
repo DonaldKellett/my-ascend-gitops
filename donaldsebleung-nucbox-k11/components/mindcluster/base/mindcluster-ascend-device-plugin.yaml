@@ -144,6 +144,8 @@ spec:
               mountPath: /run/containerd
               readOnly: true
           env:
+            - name: LD_LIBRARY_PATH
+              value: "/usr/local/Ascend/driver/lib64:/usr/local/Ascend/driver/lib64/common:/usr/local/dcmi:/usr/local/Ascend/driver/lib64/driver"
             - name: MOUNT_BY_RUNTIME_FOR_DP
               value: "false"
             - name: NODE_NAME
