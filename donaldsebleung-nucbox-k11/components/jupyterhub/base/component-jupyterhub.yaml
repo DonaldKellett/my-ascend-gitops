@@ -26,6 +26,9 @@ spec:
           service:
             type: ClusterIP
         singleuser:
+          networkPolicy:
+            egressAllowRules:
+              privateIPs: true
           extraEnv:
             MLFLOW_TRACKING_URI: "http://component-mlflow-mlflow.mlflow:5000"
           profileList:
