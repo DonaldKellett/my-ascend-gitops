@@ -25,6 +25,33 @@ spec:
         proxy:
           service:
             type: ClusterIP
+        singleuser:
+          profileList:
+            - display_name: "Default: MindSpore 2.10.0 - cpu.small"
+              description: "MindSpore 2.10.0 on CPU platform with 2 vCPU and 8G memory"
+              default: true
+              kubespawner_override:
+                image: "quay.io/donaldsebleung/mindspore-notebook:mindspore-2.10.0"
+                cpu_guarantee: 2.0
+                cpu_limit: 2.0
+                mem_guarantee: "8Gi"
+                mem_limit: "8Gi"
+            - display_name: "MindSpore 2.10.0 - cpu.medium"
+              description: "MindSpore 2.10.0 on CPU platform with 4 vCPU and 16G memory"
+              kubespawner_override:
+                image: "quay.io/donaldsebleung/mindspore-notebook:mindspore-2.10.0"
+                cpu_guarantee: 4.0
+                cpu_limit: 4.0
+                mem_guarantee: "16Gi"
+                mem_limit: "16Gi"
+            - display_name: "MindSpore 2.10.0 - cpu.large"
+              description: "MindSpore 2.10.0 on CPU platform with 8 vCPU and 32G memory"
+              kubespawner_override:
+                image: "quay.io/donaldsebleung/mindspore-notebook:mindspore-2.10.0"
+                cpu_guarantee: 8.0
+                cpu_limit: 8.0
+                mem_guarantee: "32Gi"
+                mem_limit: "32Gi"
   destination:
     server: https://kubernetes.default.svc
     namespace: jupyterhub
