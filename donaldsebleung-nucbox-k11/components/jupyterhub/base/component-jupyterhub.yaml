@@ -26,8 +26,10 @@ spec:
           service:
             type: ClusterIP
         singleuser:
+          extraEnv:
+            MLFLOW_TRACKING_URI: "http://component-mlflow-mlflow.mlflow:5000"
           profileList:
-            - display_name: "Default: MindSpore 2.10.0 - cpu.small"
+            - display_name: "MindSpore 2.10.0 - cpu.small"
               description: "MindSpore 2.10.0 on CPU platform with 2 vCPU and 8G memory"
               default: true
               kubespawner_override:
