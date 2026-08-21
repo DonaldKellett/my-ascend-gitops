@@ -1,0 +1,43 @@
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: image-pruner
+  namespace: kube-system
+spec:
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    metadata:
+      name: image-pruner
+    spec:
+      template:
+        metadata: {}
+        spec:
+          automountServiceAccountToken: false
+          containers:
+            - command:
+                - /usr/local/bin/nerdctl
+                - image
+                - prune
+                - --all
+              image: ghcr.io/containerd/nerdctl:v2.3.5
+              name: image-pruner
+              resources: {}
+              volumeMounts:
+                - name: containerd-socket
+                  mountPath: /run/k3s/containerd
+                - name: nerdctl-config
+                  mountPath: /etc/nerdctl
+                  readOnly: true
+          restartPolicy: OnFailure
+          volumes:
+            - name: containerd-socket
+              hostPath:
+                path: /run/k3s/containerd
+                type: Directory
+            - name: nerdctl-config
+              hostPath:
+                path: /etc/nerdctl
+                type: Directory
+  schedule: '0 */6 * * *'
+status: {}

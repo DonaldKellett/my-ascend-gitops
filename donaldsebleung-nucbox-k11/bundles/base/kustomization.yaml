@@ -8,3 +8,4 @@ resources:
   - bundle-mlflow.yaml
   - bundle-monitoring.yaml
   - bundle-mindcluster.yaml
+  - bundle-system.yaml
