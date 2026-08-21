@@ -9,3 +9,4 @@ resources:
   - bundle-monitoring.yaml
   - bundle-mindcluster.yaml
   - bundle-system.yaml
+  - bundle-harbor.yaml

@@ -34,8 +34,9 @@ The platform components installed are listed in the table below.
 | [Sealed Secrets](https://github.com/bitnami/sealed-secrets) | Secrets management | - |
 | [cert-manager](https://cert-manager.io/) | TLS certificates | Sealed Secrets |
 | [kube-prometheus-stack](https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack) | Infrastructure and workload monitoring | cert-manager |
-| [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/) | Notebook self-service | cert-manager |
-| [MLflow](https://mlflow.org/) | Experiment tracking and model management | cert-manager, kube-prometheus-stack |
+| [Harbor](https://goharbor.io/) | Private container image registry | cert-manager, kube-prometheus-stack |
+| [MLflow](https://mlflow.org/) | Experiment tracking and model management | cert-manager, kube-prometheus-stack, Harbor |
+| [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/) | Notebook self-service | cert-manager, Harbor, MLflow |
 
 ### Screenshots
 

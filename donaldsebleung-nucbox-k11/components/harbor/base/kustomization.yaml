@@ -1,0 +1,4 @@
+resources:
+  - harbor-ns.yaml
+  - harbor-tls.yaml
+  - component-harbor.yaml

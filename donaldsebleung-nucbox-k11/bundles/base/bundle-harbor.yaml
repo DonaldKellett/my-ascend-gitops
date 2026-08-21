@@ -3,14 +3,14 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '4'
+    argocd.argoproj.io/sync-wave: '3'
     argocd.argoproj.io/sync-options: 'Wait=true'
-  name: bundle-mlflow
+  name: bundle-harbor
 spec:
   project: default
   source:
     repoURL: https://gitcode.com/donaldsebleung/my-ascend-gitops.git
-    path: donaldsebleung-nucbox-k11/components/mlflow/overlays/prod/
+    path: donaldsebleung-nucbox-k11/components/harbor/overlays/prod/
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
