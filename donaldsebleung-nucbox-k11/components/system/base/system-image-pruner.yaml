@@ -20,6 +20,7 @@ spec:
                 - image
                 - prune
                 - --all
+                - --force
               image: ghcr.io/containerd/nerdctl:v2.3.5
               name: image-pruner
               resources: {}
