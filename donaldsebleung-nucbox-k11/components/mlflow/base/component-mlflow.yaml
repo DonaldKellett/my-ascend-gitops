@@ -13,8 +13,8 @@ spec:
     helm:
       valuesObject:
         image:
-          repository: quay.io/donaldsebleung/mlflow
-          tag: v3.15.1
+          repository: harbor.internal.donaldsebleung.com/mlflow/mlflow
+          tag: v3.15.1.post1
         server:
           value_options:
             allowed_hosts: '*'
