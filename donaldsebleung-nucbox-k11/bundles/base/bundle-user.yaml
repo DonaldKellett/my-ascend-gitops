@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: '6'
+    argocd.argoproj.io/sync-options: 'Wait=true'
+  name: bundle-user
+spec:
+  project: default
+  source:
+    repoURL: https://gitcode.com/donaldsebleung/my-ascend-gitops.git
+    path: donaldsebleung-nucbox-k11/components/user/overlays/prod/
+    targetRevision: HEAD
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -10,3 +10,4 @@ resources:
   - bundle-mindcluster.yaml
   - bundle-system.yaml
   - bundle-harbor.yaml
+  - bundle-user.yaml

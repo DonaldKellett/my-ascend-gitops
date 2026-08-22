@@ -1,0 +1,54 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: app-work
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 16Gi
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ascend-job
+spec:
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    metadata:
+      name: ascend-job
+    spec:
+      template:
+        metadata: {}
+        spec:
+          automountServiceAccountToken: false
+          containers:
+            - command:
+                - python
+                - /app/main.py
+              env:
+                - name: ASCEND_VISIBLE_DEVICES
+                  value: '0-1'
+                - name: LD_LIBRARY_PATH
+                  value: '/usr/local/Ascend/driver/lib64:/usr/local/Ascend/driver/lib64/common:/usr/local/dcmi:/usr/local/Ascend/driver/lib64/driver'
+                - name: MLFLOW_TRACKING_URI
+                  value: 'http://component-mlflow-mlflow.mlflow:5000'
+                - name: MPLBACKEND
+                  value: 'agg'
+              image: harbor.internal.donaldsebleung.com/donaldsebleung/ascend-job:latest
+              name: ascend-job
+              resources: {}
+              volumeMounts:
+                - name: app-work
+                  mountPath: /app/work
+          restartPolicy: Never
+          runtimeClassName: ascend
+          volumes:
+            - name: app-work
+              persistentVolumeClaim:
+                claimName: app-work
+  schedule: '0 */6 * * *'
+  suspend: true
+status: {}
