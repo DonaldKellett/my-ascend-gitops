@@ -25,10 +25,9 @@ spec:
         spec:
           automountServiceAccountToken: false
           containers:
-            - command:
-                - /bin/bash
-                - -c
-                - 'while true; do [ -d /usr/local/Ascend/driver/ ] && break || sleep 1; done; python /app/main.py'
+            - args:
+                - python
+                - /app/main.py
               env:
                 - name: ASCEND_VISIBLE_DEVICES
                   value: '0-1'
