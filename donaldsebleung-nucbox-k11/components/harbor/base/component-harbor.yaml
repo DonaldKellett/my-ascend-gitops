@@ -27,6 +27,10 @@ spec:
           enabled: true
           serviceMonitor:
             enabled: true
+        core:
+          extraEnvVars:
+            - name: REGISTRY_HTTP_CLIENT_TIMEOUT
+              value: '1440'
         jobservice:
           registryHttpClientTimeout: 1440
   destination:
