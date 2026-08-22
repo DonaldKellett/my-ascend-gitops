@@ -27,6 +27,8 @@ spec:
           enabled: true
           serviceMonitor:
             enabled: true
+        jobservice:
+          registryHttpClientTimeout: 1440
   destination:
     server: https://kubernetes.default.svc
     namespace: harbor
