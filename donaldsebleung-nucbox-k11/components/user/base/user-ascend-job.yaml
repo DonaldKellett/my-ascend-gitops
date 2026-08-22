@@ -20,6 +20,7 @@ spec:
     metadata:
       name: ascend-job
     spec:
+      backoffLimit: 0
       template:
         metadata: {}
         spec:
@@ -50,6 +51,7 @@ spec:
             - name: app-work
               persistentVolumeClaim:
                 claimName: app-work
+      ttlSecondsAfterFinished: 604800
   schedule: '0 */6 * * *'
   suspend: true
 status: {}
