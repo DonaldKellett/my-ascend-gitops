@@ -28,7 +28,7 @@ spec:
             - command:
                 - /bin/bash
                 - -c
-                - 'while true; do [ -f /usr/local/Ascend/driver/lib64/libge_runner.so ] && break || sleep 1; done; python /app/main.py'
+                - 'while true; do [ -d /usr/local/Ascend/driver/ ] && break || sleep 1; done; python /app/main.py'
               env:
                 - name: ASCEND_VISIBLE_DEVICES
                   value: '0-1'
