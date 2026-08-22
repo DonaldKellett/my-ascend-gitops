@@ -38,6 +38,7 @@ spec:
                 - name: MPLBACKEND
                   value: 'agg'
               image: harbor.internal.donaldsebleung.com/donaldsebleung/ascend-job:latest
+              imagePullPolicy: Always
               name: ascend-job
               resources: {}
               volumeMounts:
