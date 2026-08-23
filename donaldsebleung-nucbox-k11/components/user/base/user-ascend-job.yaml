@@ -27,6 +27,11 @@ spec:
           automountServiceAccountToken: false
           containers:
             - args:
+                - msrun
+                - '--worker_num=2'
+                - '--local_worker_num=2'
+                - '--master_addr=localhost'
+                - '--master_port=10969'
                 - python
                 - /app/main.py
               env:
@@ -45,12 +50,17 @@ spec:
               volumeMounts:
                 - name: app-work
                   mountPath: /app/work
+                - name: dshm
+                  mountPath: /dev/shm
           restartPolicy: Never
           runtimeClassName: ascend
           volumes:
             - name: app-work
               persistentVolumeClaim:
                 claimName: app-work
+            - name: dshm
+              emptyDir:
+                medium: Memory
       ttlSecondsAfterFinished: 604800
   schedule: '0 */6 * * *'
   suspend: true
