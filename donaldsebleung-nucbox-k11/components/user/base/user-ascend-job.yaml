@@ -30,8 +30,6 @@ spec:
                 - msrun
                 - '--worker_num=2'
                 - '--local_worker_num=2'
-                - '--master_addr=127.0.0.1'
-                - '--master_port=10969'
                 - '--join=True'
                 - python
                 - /app/main.py
@@ -53,6 +51,18 @@ spec:
                   mountPath: /app/work
                 - name: dshm
                   mountPath: /dev/shm
+          initContainers:
+            - args:
+                - /bin/bash
+                - -c
+                - 'rm -rvf /app/work/* /app/work/.*'
+              image: harbor.internal.donaldsebleung.com/donaldsebleung/ascend-job:latest
+              imagePullPolicy: Always
+              name: clear-app-work
+              resources: {}
+              volumeMounts:
+                - name: app-work
+                  mountPath: /app/work
           restartPolicy: Never
           runtimeClassName: ascend
           volumes:
